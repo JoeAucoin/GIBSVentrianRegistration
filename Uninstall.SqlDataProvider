@@ -1,0 +1,45 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Drop FAQs Table
+
+ALTER TABLE {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration] DROP CONSTRAINT [FK_{objectQualifier}GIBS_GIBSVentrianRegistration_{objectQualifier}Modules]
+GO
+
+ALTER TABLE {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration] DROP CONSTRAINT [PK_{objectQualifier}GIBS_GIBSVentrianRegistration]
+GO
+
+DROP INDEX {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration].[IX_{objectQualifier}GIBS_GIBSVentrianRegistration]
+GO
+
+DROP TABLE {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration]
+GO
+
+/** Drop Stored Procedures **/
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_GetGIBSVentrianRegistrations]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_GetGIBSVentrianRegistration]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_AddGIBSVentrianRegistration]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_UpdateGIBSVentrianRegistration]
+GO
+
+DROP PROCEDURE {databaseOwner}[{objectQualifier}GIBS_DeleteGIBSVentrianRegistration]
+GO
+ **/
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

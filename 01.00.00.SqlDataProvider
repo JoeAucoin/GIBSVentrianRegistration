@@ -1,0 +1,280 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+/** Create Table **/
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration]') and OBJECTPROPERTY(id, N'IsTable') = 1)
+	BEGIN
+		CREATE TABLE {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration]
+		(
+			[ModuleID] [int] NOT NULL,
+			[ItemID] [int] NOT NULL IDENTITY(1, 1),
+			[Content] [ntext] NOT NULL,
+			[CreatedByUser] [int] NOT NULL,
+			[CreatedDate] [datetime] NOT NULL
+		)
+
+		ALTER TABLE {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration] ADD CONSTRAINT [PK_{objectQualifier}GIBS_GIBSVentrianRegistration] PRIMARY KEY CLUSTERED  ([ItemID])
+		CREATE NONCLUSTERED INDEX [IX_{objectQualifier}GIBS_GIBSVentrianRegistration] ON {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration] ([ModuleID])
+
+		ALTER TABLE {databaseOwner}[{objectQualifier}GIBS_GIBSVentrianRegistration] WITH NOCHECK ADD CONSTRAINT [FK_{objectQualifier}GIBS_GIBSVentrianRegistration_{objectQualifier}Modules] FOREIGN KEY ([ModuleID]) REFERENCES {databaseOwner}[{objectQualifier}Modules] ([ModuleID]) ON DELETE CASCADE NOT FOR REPLICATION
+	END
+GO
+
+
+/** Drop Existing Stored Procedures **/
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentAdd]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentAdd
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentDelete]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentDelete
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentList]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentList
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_PropertyAgent_GetPropertyAddress]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_GetPropertyAddress
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_Registration_Add_AuctionTerms]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_Registration_Add_AuctionTerms
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_Registration_Get_AuctionTerms]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_Registration_Get_AuctionTerms
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}GIBS_Ventrian_Registration_Update_AuctionTerms]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+	drop procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_Registration_Update_AuctionTerms
+GO
+
+
+/** Create Stored Procedures **/
+
+
+CREATE procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_Registration_Update_AuctionTerms
+
+	@ModuleId       int,
+    @ItemId         int,
+	@Content        ntext,
+	@UserID         int
+
+as
+
+update {objectQualifier}GIBS_GIBSVentrianRegistration
+set    Content       = @Content,
+       CreatedByUser = @UserID,
+       CreatedDate   = getdate()
+where  ModuleId = @ModuleId
+and    ItemId = @ItemId
+
+GO
+
+/** NEXT **/
+
+CREATE procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_Registration_Get_AuctionTerms
+
+	@ModuleId int,
+    @ItemId int
+
+as
+
+select ModuleId,
+       ItemId,
+       Content,
+       CreatedByUser,
+       CreatedDate,
+       'CreatedByUserName' = {objectQualifier}Users.FirstName + ' ' + {objectQualifier}Users.LastName
+from {objectQualifier}GIBS_GIBSVentrianRegistration
+inner join {objectQualifier}Users on {objectQualifier}GIBS_GIBSVentrianRegistration.CreatedByUser = {objectQualifier}Users.UserId
+where  ModuleId = @ModuleId
+and ItemId = @ItemId
+
+
+GO
+
+/** NEXT **/
+
+CREATE procedure {databaseOwner}{objectQualifier}GIBS_Ventrian_Registration_Add_AuctionTerms
+
+	@ModuleId       int,
+	@Content        ntext,
+	@UserID         int
+
+as
+
+insert into 
+ {objectQualifier}GIBS_GIBSVentrianRegistration (
+	ModuleId,
+	Content,
+	CreatedByUser,
+	CreatedDate
+) 
+values (
+	@ModuleId,
+	@Content,
+	@UserID,
+	getdate()
+)
+
+GO
+
+/** NEXT **/
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_GetPropertyAddress
+	@PropertyID int
+
+AS
+
+
+Select (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'address')) as Address, 
+
+
+ (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'unit#')) as Unit, 
+                      
+                      
+                      (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'city'))  as City , 
+                      
+                      (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'state'))  as State
+
+,
+                      (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'AuctionDate'))  as AuctionDate
+
+,
+                      (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'AuctionTime'))  as AuctionTime
+
+,
+                      (SELECT      {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomValue
+FROM         {objectQualifier}Ventrian_PropertyAgent_CustomField INNER JOIN
+                      {objectQualifier}Ventrian_PropertyAgent_PropertyValue ON {objectQualifier}Ventrian_PropertyAgent_CustomField.CustomFieldID = {objectQualifier}Ventrian_PropertyAgent_PropertyValue.CustomFieldID
+WHERE    {objectQualifier}Ventrian_PropertyAgent_PropertyValue.PropertyID = @PropertyID AND  ({objectQualifier}Ventrian_PropertyAgent_CustomField.Name = N'DepositAmount'))  as DepositAmount
+
+GO
+
+/** NEXT **/
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentList
+	@PropertyID int,
+	@UserID int
+AS
+
+SELECT     
+	c.CommentID,
+	c.PropertyID,
+	c.UserID,
+	c.Comment AS FullAddress,
+	c.CreateDate,
+	CASE c.UserID
+        	WHEN -1 THEN c.Email
+         	ELSE u.Email
+      	END as 'Email',
+	CASE c.UserID
+        	WHEN -1 THEN c.Name
+         	ELSE u.DisplayName
+      	END as 'FullName',
+	c.Website as Telephone,
+	u.Username
+	
+FROM         
+	{objectQualifier}Ventrian_PropertyAgent_Comment c LEFT OUTER JOIN {objectQualifier}Users u ON c.UserID = u.UserID 
+WHERE
+	c.PropertyID = @PropertyID and c.UserID = @UserID
+ORDER BY
+	c.CreateDate ASC
+
+GO
+
+/** NEXT **/
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentDelete
+	@CommentID int
+AS
+
+DECLARE @PropertyID int
+
+SELECT @PropertyID = PropertyID
+FROM {objectQualifier}Ventrian_PropertyAgent_Comment 
+WHERE CommentID = @CommentID
+
+DELETE FROM {objectQualifier}Ventrian_PropertyAgent_Comment 
+WHERE CommentID = @CommentID
+
+if( @PropertyID is not null )
+begin
+	UPDATE {objectQualifier}Ventrian_PropertyAgent_Property  
+	SET CommentCount = (select count(CommentID) from {objectQualifier}Ventrian_PropertyAgent_Comment c where c.PropertyID = {objectQualifier}Ventrian_PropertyAgent_Property.PropertyID)
+	WHERE PropertyID = @PropertyID
+end
+
+GO
+
+/** NEXT **/
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}GIBS_Ventrian_PropertyAgent_CommentAdd
+	@PropertyID int, 
+	@UserID int,
+	@FullAddress ntext, 
+	@CreateDate datetime,
+	@FullName nvarchar(255),
+	@Email nvarchar(255),
+	@Telephone nvarchar(255) 
+AS
+
+INSERT INTO {objectQualifier}Ventrian_PropertyAgent_Comment (
+	[PropertyID],  
+	[UserID],
+	[Comment],
+	[CreateDate],
+	[Name],
+	[Email],
+	[Website]
+) VALUES (
+	@PropertyID, 
+	@UserID,
+	@FullAddress,
+	@CreateDate,
+	@FullName,
+	@Email,
+	@Telephone
+)
+
+select SCOPE_IDENTITY()
+
+UPDATE {objectQualifier}Ventrian_PropertyAgent_Property  
+SET CommentCount = (select count(CommentID) from {objectQualifier}Ventrian_PropertyAgent_Comment c where c.PropertyID = {objectQualifier}Ventrian_PropertyAgent_Property.PropertyID)
+WHERE PropertyID = @PropertyID
+
+GO
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/

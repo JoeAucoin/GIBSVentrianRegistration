@@ -1,0 +1,96 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="GIBS.GIBSVentrianRegistration" type="Module" version="1.0.3">
+  <friendlyName>GIBS Ventrian Registration</friendlyName>
+  <description>Custom Registration Tool for Ventrian Property Agent</description>
+  <iconFile />
+  <owner>
+    <name>Joseph M Aucoin</name>
+    <organization>GIBS</organization>
+    <url>www.gibs.com</url>
+    <email>jaucoin@gibs.com</email>
+  </owner>
+  <license>The license for this package is not currently included within the installation file, please check with the vendor for full license details.</license>
+  <releaseNotes>This package has no Release Notes</releaseNotes>
+  <components>
+    <component type="Script">
+      <scripts>
+        <basePath>DesktopModules\GIBS\GIBSVentrianRegistration</basePath>
+        <script type="Install">
+          <name>01.00.00.SqlDataProvider</name>
+          <version>01.00.00</version>
+        </script>
+        <script type="UnInstall">
+          <name>Uninstall.SqlDataProvider</name>
+          <version>1.0.3</version>
+        </script>
+      </scripts>
+    </component>
+    <component type="ResourceFile">
+      <resourceFiles>
+        <basePath>DesktopModules/GIBS/FlexMLS_List</basePath>
+        <resourceFile>
+          <name>Resources.zip</name>
+        </resourceFile>
+      </resourceFiles>
+    </component>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>GIBS.GIBSVentrianRegistration</moduleName>
+        <foldername>GIBS/GIBSVentrianRegistration</foldername>
+        <businessControllerClass />
+        <supportedFeatures />
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>GIBS Ventrian Registration</friendlyName>
+            <definitionName>GIBS Ventrian Registration</definitionName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/GIBS/GIBSVentrianRegistration/ViewGIBSVentrianRegistration.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Edit</controlKey>
+                <controlSrc>DesktopModules/GIBS/GIBSVentrianRegistration/EditGIBSVentrianRegistration.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Edit Terms and Conditions</controlTitle>
+                <controlType>Edit</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>1</viewOrder>
+              </moduleControl>
+              <moduleControl>
+                <controlKey>Settings</controlKey>
+                <controlSrc>DesktopModules/GIBS/GIBSVentrianRegistration/Settings.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle>Module Settings</controlTitle>
+                <controlType>Edit</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>1</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+    </component>
+    <component type="Assembly">
+      <assemblies>
+        <basePath>bin</basePath>
+        <assembly>
+          <name>GIBS.Modules.GIBSVentrianRegistration.dll</name>
+        </assembly>
+      </assemblies>
+    </component>
+  </components>
+</package></packages>
+</dotnetnuke>
