@@ -23,7 +23,8 @@ namespace GIBS.GIBSVentrianRegistration.Components
 
         public GIBSVentrianRegistrationInfo Ventrian_PropertyAgent_GetPropertyAddress(int propertyID)
         {
-            return (GIBSVentrianRegistrationInfo)CBO.FillObject(DataProvider.Instance().Ventrian_PropertyAgent_GetPropertyAddress(propertyID), typeof(GIBSVentrianRegistrationInfo));
+          //  return (GIBSVentrianRegistrationInfo)CBO.FillObject(DataProvider.Instance().Ventrian_PropertyAgent_GetPropertyAddress(propertyID), typeof(GIBSVentrianRegistrationInfo));
+            return CBO.FillObject<GIBSVentrianRegistrationInfo>(DataProvider.Instance().Ventrian_PropertyAgent_GetPropertyAddress(propertyID));
         }
 
 
@@ -57,7 +58,8 @@ namespace GIBS.GIBSVentrianRegistration.Components
 
         public GIBSVentrianRegistrationInfo Ventrian_Registration_Get_AuctionTerms(int moduleId, int itemId)
         {
-            return (GIBSVentrianRegistrationInfo)CBO.FillObject(DataProvider.Instance().Ventrian_Registration_Get_AuctionTerms(moduleId, itemId), typeof(GIBSVentrianRegistrationInfo));
+            //return (GIBSVentrianRegistrationInfo)CBO.FillObject(DataProvider.Instance().Ventrian_Registration_Get_AuctionTerms(moduleId, itemId), typeof(GIBSVentrianRegistrationInfo));
+            return CBO.FillObject<GIBSVentrianRegistrationInfo>(DataProvider.Instance().Ventrian_Registration_Get_AuctionTerms(moduleId, itemId));
         }
 
 

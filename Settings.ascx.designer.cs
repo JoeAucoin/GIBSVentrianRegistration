@@ -7,11 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GIBS.Modules.GIBSVentrianRegistration {
-    
-    
-    public partial class Settings {
-        
+namespace GIBS.Modules.GIBSVentrianRegistration
+{
+
+
+    public partial class Settings
+    {
+
+        /// <summary>
+        /// lblReturnUrlPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblReturnUrlPath;
+
+        /// <summary>
+        /// txtReturnUrlPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReturnUrlPath;
+
         /// <summary>
         /// lblAuctionModuleID control.
         /// </summary>
@@ -20,7 +40,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblAuctionModuleID;
-        
+
         /// <summary>
         /// drpModuleID control.
         /// </summary>
@@ -29,7 +49,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpModuleID;
-        
+
         /// <summary>
         /// lblEmailFrom control.
         /// </summary>
@@ -38,7 +58,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailFrom;
-        
+
         /// <summary>
         /// txtEmailFrom control.
         /// </summary>
@@ -47,7 +67,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailFrom;
-        
+
         /// <summary>
         /// lblEmailNotify control.
         /// </summary>
@@ -56,7 +76,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailNotify;
-        
+
         /// <summary>
         /// txtEmailNotify control.
         /// </summary>
@@ -65,7 +85,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailNotify;
-        
+
         /// <summary>
         /// lblEmailSubject control.
         /// </summary>
@@ -74,7 +94,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailSubject;
-        
+
         /// <summary>
         /// txtEmailSubject control.
         /// </summary>

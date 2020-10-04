@@ -1,5 +1,5 @@
 ﻿<dotnetnuke type="Package" version="5.0">
-  <packages><package name="GIBS.GIBSVentrianRegistration" type="Module" version="1.0.3">
+  <packages><package name="GIBS.GIBSVentrianRegistration" type="Module" version="1.0.5">
   <friendlyName>GIBS Ventrian Registration</friendlyName>
   <description>Custom Registration Tool for Ventrian Property Agent</description>
   <iconFile />
@@ -21,13 +21,13 @@
         </script>
         <script type="UnInstall">
           <name>Uninstall.SqlDataProvider</name>
-          <version>1.0.3</version>
+          <version>1.0.5</version>
         </script>
       </scripts>
     </component>
     <component type="ResourceFile">
       <resourceFiles>
-        <basePath>DesktopModules/GIBS/FlexMLS_List</basePath>
+        <basePath>DesktopModules/GIBS/GIBSVentrianRegistration</basePath>
         <resourceFile>
           <name>Resources.zip</name>
         </resourceFile>

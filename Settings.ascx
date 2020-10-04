@@ -4,6 +4,11 @@
 <table cellspacing="0" cellpadding="2" border="0" summary="ModuleName1 Settings Design Table">
 
 
+    	<tr>
+        <td class="SubHead" valign="top"><dnn:label id="lblReturnUrlPath" runat="server" controlname="txtReturnUrlPath" suffix=":"></dnn:label></td>
+        <td valign="top"><asp:TextBox ID="txtReturnUrlPath" runat="server"></asp:TextBox></td>
+    </tr>	
+
 	<tr>
 		<td class="SubHead" width="150"><dnn:label id="lblAuctionModuleID" runat="server" suffix=":" controlname="drpModuleID"></dnn:label></td>
 		<td valign="bottom">

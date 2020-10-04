@@ -18,6 +18,7 @@ using DotNetNuke.Security.Membership;
 using DotNetNuke.Common;
 using System.Text;
 
+
 namespace GIBS.Modules.GIBSVentrianRegistration
 {
     public partial class ViewGIBSVentrianRegistration : PortalModuleBase, IActionable
@@ -105,26 +106,18 @@ namespace GIBS.Modules.GIBSVentrianRegistration
         {
             try
             {
-              //  DonationTrackerSettings settingsData = new DonationTrackerSettings(this.TabModuleId);
-                GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
+               
 
-                if (settingsData.VentrianModuleID != null)
+                string _ReturnUrlPath = "";
+
+                
+                    _ReturnUrlPath = Settings["returnUrlPath"].ToString();
+               
+
+                if (_ReturnUrlPath != "")
                 {
-                    MyReturnURL = settingsData.VentrianModuleID;
-                    // 65-496
-                    string s = MyReturnURL;
-                    string[] parts = s.Split('-');
-                    string i1 = parts[0];
-                    string i2 = parts[1]; 
-                   
-                    int myModID = Convert.ToInt32(i2);
-                    int myTabID = Convert.ToInt32(i1);
-
-                    string SEOPropertyID = GetSetting("SEOPropertyID", myModID);
-                    string SEOAgentType = GetSetting("SEOAgentType", myModID);
-
-
-                    string newURL = Globals.NavigateURL(myTabID, "", SEOAgentType + "=View", SEOPropertyID + "=" + PropertyID.ToString());
+                    MyReturnURL = _ReturnUrlPath;
+                    string newURL = MyReturnURL + PropertyID.ToString();
 
                  //   lblErrorMessage.Text = newURL;
                     
@@ -139,16 +132,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration
             }
         }
 
-        public String GetSetting(String settingKey, int MyModuleID)
-        {
-            String settingValue = "";
-            DotNetNuke.Entities.Modules.ModuleController moduleCont = new DotNetNuke.Entities.Modules.ModuleController();
 
-            if (moduleCont.GetModuleSettings(MyModuleID).ContainsKey(settingKey))
-                settingValue = moduleCont.GetModuleSettings(MyModuleID)[settingKey].ToString();
-
-            return settingValue;
-        }
 
 
         protected void RegistrationCheck()
@@ -285,30 +269,41 @@ namespace GIBS.Modules.GIBSVentrianRegistration
 
             try
             {
-                GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
-
+                //GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
                 string EmailContent = content;
 
                 //EMAIL THE PURCHASER
                 string EmailFrom = "";
-                if (settingsData.EmailFrom.Length > 1)
+
+
+                if (Settings.Contains("EmailFrom"))
                 {
-                    EmailFrom = settingsData.EmailFrom.ToString();
+                    EmailFrom = Settings["EmailFrom"].ToString();
                 }
                 else
                 {
                     EmailFrom = PortalSettings.Email.ToString();
                 }
 
+               
+
                 DotNetNuke.Services.Mail.Mail.SendMail(EmailFrom.ToString(), emailto.ToString(), "", subject, EmailContent.ToString(), "", "HTML", "", "", "", "");
 
                 string AdminEmailContent = "";
-                AdminEmailContent += "<h1>Administrator Copy</h1>" + content.ToString();
-                
-                if (settingsData.EmailNotify.Length > 1)
+                string _EmailNotify = "";
+                if (Settings.Contains("EmailNotify"))
                 {
+                    _EmailNotify = Settings["EmailNotify"].ToString();
+                }
+
+
+                AdminEmailContent += "<h1>Administrator Copy</h1>" + content.ToString();
+
+                if (_EmailNotify.Length > 0)
+                {
+                  
                     string FromRegisteredPersonEmail = emailto;
-                    string emailAddress = settingsData.EmailNotify.Replace(" ", "");
+                    string emailAddress = _EmailNotify.ToString().Replace(" ", "");
                     string[] valuePair = emailAddress.Split(new char[] { ';' });
 
                     for (int i = 0; i <= valuePair.Length - 1; i++)
@@ -612,9 +607,11 @@ namespace GIBS.Modules.GIBSVentrianRegistration
                     {
                         DotNetNuke.Security.Roles.RoleController rc = new DotNetNuke.Security.Roles.RoleController();
                         //retrieve role
+                        int AuctionPortalID = this.PortalId;
                         string groupName = AddUserRole;
-                        DotNetNuke.Security.Roles.RoleInfo ri = rc.GetRoleByName(PortalId, groupName);
-                        rc.AddUserRole(this.PortalId, oUser.UserID, ri.RoleID, Null.NullDate);
+
+                        DotNetNuke.Security.Roles.RoleInfo ri = rc.GetRoleByName(AuctionPortalID, groupName);
+                        rc.AddUserRole(AuctionPortalID, oUser.UserID, ri.RoleID, DotNetNuke.Security.Roles.RoleStatus.Approved, false, DateTime.Today, Null.NullDate);
                     }
 
 

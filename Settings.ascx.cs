@@ -13,7 +13,7 @@ using DotNetNuke.Common.Utilities;
 
 namespace GIBS.Modules.GIBSVentrianRegistration
 {
-    public partial class Settings : ModuleSettingsBase
+    public partial class Settings : GIBSVentrianRegistrationSettings
     {
 
         /// <summary>
@@ -28,29 +28,38 @@ namespace GIBS.Modules.GIBSVentrianRegistration
                 {
 
                     BindModules();
-                    GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
+                    //  GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
+                    // txtReturnUrlPath
 
-                    if (settingsData.VentrianModuleID != null)
+                    if (ReturnUrlPath != null)
                     {
-
-                        drpModuleID.SelectedValue = settingsData.VentrianModuleID;
-                    }
-                    if (settingsData.EmailFrom != null)
-                    {
-
-                        txtEmailFrom.Text = settingsData.EmailFrom;
+                        txtReturnUrlPath.Text = ReturnUrlPath;
                     }
 
-                    if (settingsData.EmailNotify != null)
-                    {
 
-                        txtEmailNotify.Text = settingsData.EmailNotify;
+                    if (VentrianModuleID != null)
+                    {
+                        drpModuleID.SelectedValue = VentrianModuleID;
                     }
 
-                    if (settingsData.EmailSubject != null)
+
+    
+                    if (EmailFrom != null)
                     {
 
-                        txtEmailSubject.Text = settingsData.EmailSubject;
+                        txtEmailFrom.Text = EmailFrom;
+                    }
+
+                    if (EmailNotify != null)
+                    {
+
+                        txtEmailNotify.Text = EmailNotify;
+                    }
+
+                    if (EmailSubject != null)
+                    {
+
+                        txtEmailSubject.Text = EmailSubject;
                     }
 
                 }
@@ -68,11 +77,12 @@ namespace GIBS.Modules.GIBSVentrianRegistration
         {
             try
             {
-                GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
-                settingsData.VentrianModuleID = drpModuleID.SelectedValue;
-                settingsData.EmailFrom = txtEmailFrom.Text;
-                settingsData.EmailNotify = txtEmailNotify.Text;
-                settingsData.EmailSubject = txtEmailSubject.Text;
+              //  GIBSVentrianRegistrationSettings settingsData = new GIBSVentrianRegistrationSettings(this.TabModuleId);
+                VentrianModuleID = drpModuleID.SelectedValue;
+                EmailFrom = txtEmailFrom.Text;
+                EmailNotify = txtEmailNotify.Text;
+                EmailSubject = txtEmailSubject.Text;
+                ReturnUrlPath = txtReturnUrlPath.Text;
             }
             catch (Exception ex)
             {

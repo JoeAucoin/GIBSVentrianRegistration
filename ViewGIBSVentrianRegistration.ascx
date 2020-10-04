@@ -212,14 +212,8 @@
 
 <asp:GridView ID="GridRegistrations" runat="server" EnableModelValidation="True"
     DataKeyNames="CommentID" OnRowDeleting="GridRegistrations_RowDeleting" resourcekey="GridRegistrations"
-    AutoGenerateColumns="False" CellPadding="4" GridLines="None" CellSpacing="1"
-    BorderWidth="1" BorderColor="AliceBlue" BorderStyle="Solid" BackColor="DarkBlue">
-    <AlternatingRowStyle BackColor="White" />
-    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-    <HeaderStyle BackColor="#dae8f5" Font-Bold="True" ForeColor="#003366" />
-    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-    <RowStyle BackColor="#f3f7fb" ForeColor="#333333" />
-    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+    AutoGenerateColumns="False" CssClass="table table-striped table-bordered table-list">
+    
     <Columns>
         <asp:TemplateField HeaderText="">
             <ItemTemplate>
