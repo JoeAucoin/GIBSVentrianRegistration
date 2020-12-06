@@ -276,39 +276,59 @@ namespace GIBS.Modules.GIBSVentrianRegistration
                 string EmailFrom = "";
 
 
-                if (Settings.Contains("EmailFrom"))
+                if (Settings.Contains("emailFrom"))
                 {
-                    EmailFrom = Settings["EmailFrom"].ToString();
+                    EmailFrom = Settings["emailFrom"].ToString();
                 }
                 else
                 {
                     EmailFrom = PortalSettings.Email.ToString();
                 }
 
-               
 
-                DotNetNuke.Services.Mail.Mail.SendMail(EmailFrom.ToString(), emailto.ToString(), "", subject, EmailContent.ToString(), "", "HTML", "", "", "", "");
+                string _EmailNotify = "";
+                if (Settings.Contains("emailNotify"))
+                {
+                    _EmailNotify = Settings["emailNotify"].ToString();
+                }
+
+                // DotNetNuke.Services.Mail.Mail.SendMail(EmailFrom.ToString(), emailto.ToString(), "", subject, EmailContent.ToString(), "", "HTML", "", "", "", "");
+
+                string SMTPUserName = DotNetNuke.Entities.Controllers.HostController.Instance.GetString("SMTPUsername");
+
+               // EmailFrom = SMTPUserName.ToString();
+
+                string[] emptyStringArray = new string[0];
+
+                DotNetNuke.Services.Mail.Mail.SendMail(SMTPUserName.Trim().ToString(), emailto.ToString(), "", "",
+                    EmailFrom.ToString(), DotNetNuke.Services.Mail.MailPriority.Normal,
+                    subject.ToString(), DotNetNuke.Services.Mail.MailFormat.Html,
+                    System.Text.Encoding.ASCII, EmailContent.ToString(), emptyStringArray,
+                    "", "", "", "", true);
+
+
 
                 string AdminEmailContent = "";
-                string _EmailNotify = "";
-                if (Settings.Contains("EmailNotify"))
-                {
-                    _EmailNotify = Settings["EmailNotify"].ToString();
-                }
+
 
 
                 AdminEmailContent += "<h1>Administrator Copy</h1>" + content.ToString();
 
                 if (_EmailNotify.Length > 0)
                 {
-                  
-                    string FromRegisteredPersonEmail = emailto;
+
+                  //  string FromRegisteredPersonEmail = emailto;
                     string emailAddress = _EmailNotify.ToString().Replace(" ", "");
                     string[] valuePair = emailAddress.Split(new char[] { ';' });
 
                     for (int i = 0; i <= valuePair.Length - 1; i++)
                     {
-                        DotNetNuke.Services.Mail.Mail.SendMail(FromRegisteredPersonEmail, valuePair[i].ToString().Trim(), "", "Admin Copy - " + subject, AdminEmailContent.ToString(), "", "HTML", "", "", "", "");
+                     //   DotNetNuke.Services.Mail.Mail.SendMail(SMTPUserName.Trim().ToString(), valuePair[i].ToString().Trim(), "", "Admin Copy - " + subject, AdminEmailContent.ToString(), "", "HTML", "", "", "", "");
+                        DotNetNuke.Services.Mail.Mail.SendMail(SMTPUserName.Trim().ToString(), valuePair[i].ToString().Trim(), "", "",
+                    EmailFrom.ToString(), DotNetNuke.Services.Mail.MailPriority.Normal,
+                   "Admin Copy - " + subject.ToString(), DotNetNuke.Services.Mail.MailFormat.Html,
+                    System.Text.Encoding.ASCII, AdminEmailContent.ToString(), emptyStringArray,
+                    "", "", "", "", true);
                     }
 
                 }
