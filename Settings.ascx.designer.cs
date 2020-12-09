@@ -15,13 +15,31 @@ namespace GIBS.Modules.GIBSVentrianRegistration
     {
 
         /// <summary>
+        /// sectGeneralSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UserControl sectGeneralSettings;
+
+        /// <summary>
+        /// GeneralSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GeneralSection;
+
+        /// <summary>
         /// lblReturnUrlPath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblReturnUrlPath;
+        protected global::System.Web.UI.UserControl lblReturnUrlPath;
 
         /// <summary>
         /// txtReturnUrlPath control.
@@ -39,7 +57,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblAuctionModuleID;
+        protected global::System.Web.UI.UserControl lblAuctionModuleID;
 
         /// <summary>
         /// drpModuleID control.
@@ -57,7 +75,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailFrom;
+        protected global::System.Web.UI.UserControl lblEmailFrom;
 
         /// <summary>
         /// txtEmailFrom control.
@@ -75,7 +93,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailNotify;
+        protected global::System.Web.UI.UserControl lblEmailNotify;
 
         /// <summary>
         /// txtEmailNotify control.
@@ -93,7 +111,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailSubject;
+        protected global::System.Web.UI.UserControl lblEmailSubject;
 
         /// <summary>
         /// txtEmailSubject control.
