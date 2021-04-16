@@ -1,5 +1,5 @@
 ﻿<dotnetnuke type="Package" version="5.0">
-  <packages><package name="GIBS.GIBSVentrianRegistration" type="Module" version="1.0.6">
+  <packages><package name="GIBS.GIBSVentrianRegistration" type="Module" version="1.0.7">
   <friendlyName>GIBS Ventrian Registration</friendlyName>
   <description>Custom Registration Tool for Ventrian Property Agent</description>
   <iconFile />
@@ -21,7 +21,7 @@
         </script>
         <script type="UnInstall">
           <name>Uninstall.SqlDataProvider</name>
-          <version>1.0.6</version>
+          <version>1.0.7</version>
         </script>
       </scripts>
     </component>

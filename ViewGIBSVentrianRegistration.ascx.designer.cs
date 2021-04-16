@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GIBS.Modules.GIBSVentrianRegistration {
-    
-    
-    public partial class ViewGIBSVentrianRegistration {
-        
+namespace GIBS.Modules.GIBSVentrianRegistration
+{
+
+
+    public partial class ViewGIBSVentrianRegistration
+    {
+
         /// <summary>
         /// lblErrorMessage control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblErrorMessage;
-        
+
         /// <summary>
         /// lblPropertyName control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPropertyName;
-        
+
         /// <summary>
         /// lblInstructions control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblInstructions;
-        
+
         /// <summary>
         /// pnlTerms control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlTerms;
-        
+
         /// <summary>
         /// pnlAuctionTerms control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAuctionTerms;
-        
+
         /// <summary>
         /// pnlEmailAddress control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlEmailAddress;
-        
+
         /// <summary>
         /// lblEmail control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmail;
-        
+
         /// <summary>
         /// txtEmail control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
+
         /// <summary>
         /// reqEmail control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqEmail;
-        
+
         /// <summary>
         /// RegularExpressionValidatorEmail control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEmail;
-        
+
         /// <summary>
         /// btnCheckEmail control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCheckEmail;
-        
+
         /// <summary>
         /// PanelRegisterAuction control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelRegisterAuction;
-        
+
         /// <summary>
         /// lblFirstName control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblFirstName;
-        
+
         /// <summary>
         /// txtFirstName control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
-        
+
         /// <summary>
         /// reqFirstName control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFirstName;
-        
+
         /// <summary>
         /// lblLastName control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblLastName;
-        
+
         /// <summary>
         /// txtLastName control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
-        
+
         /// <summary>
         /// reqLastName control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLastName;
-        
+
         /// <summary>
         /// lblAddress control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblAddress;
-        
+
         /// <summary>
         /// txtAddress control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
-        
+
         /// <summary>
         /// reqAddress control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqAddress;
-        
+
         /// <summary>
         /// lblCityStateZip control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblCityStateZip;
-        
+
         /// <summary>
         /// txtCity control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCity;
-        
+
         /// <summary>
         /// ddlStates control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStates;
-        
+
         /// <summary>
         /// txtZip control.
         /// </summary>
@@ -236,7 +238,16 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtZip;
-        
+
+        /// <summary>
+        /// reqZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqZip;
+
         /// <summary>
         /// reqCity control.
         /// </summary>
@@ -245,7 +256,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqCity;
-        
+
         /// <summary>
         /// lblPhoneNumber control.
         /// </summary>
@@ -254,7 +265,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblPhoneNumber;
-        
+
         /// <summary>
         /// txtPhoneNumber control.
         /// </summary>
@@ -263,7 +274,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
-        
+
         /// <summary>
         /// reqPhoneNumber control.
         /// </summary>
@@ -272,7 +283,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPhoneNumber;
-        
+
         /// <summary>
         /// btnRegisterForAuction control.
         /// </summary>
@@ -281,7 +292,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegisterForAuction;
-        
+
         /// <summary>
         /// PanelLogin control.
         /// </summary>
@@ -290,7 +301,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelLogin;
-        
+
         /// <summary>
         /// lblUserName control.
         /// </summary>
@@ -299,7 +310,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblUserName;
-        
+
         /// <summary>
         /// txtUserName control.
         /// </summary>
@@ -308,7 +319,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserName;
-        
+
         /// <summary>
         /// lblLoginPassword control.
         /// </summary>
@@ -317,7 +328,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblLoginPassword;
-        
+
         /// <summary>
         /// txtLoginPassword control.
         /// </summary>
@@ -326,7 +337,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLoginPassword;
-        
+
         /// <summary>
         /// lbPasswordReminder control.
         /// </summary>
@@ -335,7 +346,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbPasswordReminder;
-        
+
         /// <summary>
         /// reqLoginPassword control.
         /// </summary>
@@ -344,7 +355,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLoginPassword;
-        
+
         /// <summary>
         /// btnLogin control.
         /// </summary>
@@ -353,7 +364,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
-        
+
         /// <summary>
         /// PanelPassword control.
         /// </summary>
@@ -362,7 +373,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelPassword;
-        
+
         /// <summary>
         /// lblPassword control.
         /// </summary>
@@ -371,7 +382,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblPassword;
-        
+
         /// <summary>
         /// txtPassword control.
         /// </summary>
@@ -380,7 +391,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-        
+
         /// <summary>
         /// passwordLength control.
         /// </summary>
@@ -389,7 +400,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator passwordLength;
-        
+
         /// <summary>
         /// req6 control.
         /// </summary>
@@ -398,7 +409,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator req6;
-        
+
         /// <summary>
         /// lblVerifyPassword control.
         /// </summary>
@@ -407,7 +418,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblVerifyPassword;
-        
+
         /// <summary>
         /// txtVerifyPassword control.
         /// </summary>
@@ -416,7 +427,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVerifyPassword;
-        
+
         /// <summary>
         /// Comp1 control.
         /// </summary>
@@ -425,7 +436,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator Comp1;
-        
+
         /// <summary>
         /// btnRegister control.
         /// </summary>
@@ -434,7 +445,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegister;
-        
+
         /// <summary>
         /// GridRegistrations control.
         /// </summary>
@@ -443,7 +454,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridRegistrations;
-        
+
         /// <summary>
         /// LinkButtonCancel control.
         /// </summary>
@@ -452,7 +463,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonCancel;
-        
+
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -461,7 +472,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-        
+
         /// <summary>
         /// hiddenUserID control.
         /// </summary>

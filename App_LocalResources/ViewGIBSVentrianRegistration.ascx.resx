@@ -163,7 +163,7 @@
     <value>&lt;font color="White"&gt;Street Address is Required!&lt;/font&gt;</value>
   </data>
   <data name="reqCity.Text" xml:space="preserve">
-    <value>&lt;font color="White"&gt;City, State &amp; Zip is Required!&lt;/font&gt;</value>
+    <value>&lt;font color="White"&gt;City &amp; State is Required!&lt;/font&gt;</value>
   </data>
   <data name="reqEmail.Text" xml:space="preserve">
     <value>&lt;font color="White"&gt;E-Mail Address is Required!&lt;/font&gt;</value>
@@ -176,5 +176,8 @@
   </data>
   <data name="reqPhoneNumber.Text" xml:space="preserve">
     <value>&lt;font color="White"&gt;Phone Number is Required!&lt;/font&gt;</value>
+  </data>
+  <data name="reqZip.Text" xml:space="preserve">
+    <value>&lt;font color="White"&gt;Zip Code is Required!&lt;/font&gt;</value>
   </data>
 </root>

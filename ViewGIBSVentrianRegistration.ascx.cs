@@ -379,7 +379,7 @@ namespace GIBS.Modules.GIBSVentrianRegistration
                     txtEmail.Text = UserInfo.Email.ToString();
                     txtAddress.Text = UserInfo.Profile.Street.ToString();
                     txtCity.Text = UserInfo.Profile.City.ToString();
-                    txtZip.Text = UserInfo.Profile.PostalCode.ToString();
+                    txtZip.Text = UserInfo.Profile.PostalCode;
 
                     ListItem liToFind = ddlStates.Items.FindByValue(UserInfo.Profile.Region.ToString());
                     if (liToFind != null)

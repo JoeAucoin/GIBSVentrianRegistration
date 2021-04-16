@@ -110,10 +110,13 @@
                     ID="ddlStates" runat="server" meta:resourcekey="ddlStates" Width="65px">
                 </asp:DropDownList>
                 &nbsp;<asp:TextBox ID="txtZip" runat="server" Width="56px"></asp:TextBox>
-            
+     <asp:RequiredFieldValidator ID="reqZip" runat="server" CssClass="dnnFormMessage dnnFormError" resourcekey="reqZip" ControlToValidate="txtZip"
+             ErrorMessage="Zip Code Required" ValidationGroup="NewRegister" Display="Dynamic" />
+	       
             <asp:RequiredFieldValidator ID="reqCity" runat="server" CssClass="dnnFormMessage dnnFormError" resourcekey="reqCity" 
             ControlToValidate="txtCity" ErrorMessage="City, State & Zip Required" ValidationGroup="PreRegister" Display="Dynamic" />
-	
+
+        
     </div>		
 	
 	<div class="dnnFormItem">					
